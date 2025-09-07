@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VeridiCore.Infrastructure.Persistence.Context;
 
@@ -10,9 +11,11 @@ using VeridiCore.Infrastructure.Persistence.Context;
 namespace VeridiCore.Infrastructure.Migrations
 {
     [DbContext(typeof(VeridiCoreDbContext))]
-    partial class VeridiCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250907210744_AddTransactionTable")]
+    partial class AddTransactionTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.8");

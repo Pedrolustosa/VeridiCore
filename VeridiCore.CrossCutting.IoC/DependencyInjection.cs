@@ -1,6 +1,5 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore; // Adicione este using
-using Microsoft.Extensions.Configuration; // Adicione este using
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using VeridiCore.Domain.Interfaces.UnitOfWork;
@@ -22,6 +21,7 @@ public static class DependencyInjection
             b => b.MigrationsAssembly(typeof(VeridiCoreDbContext).Assembly.FullName)));
 
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<ITransactionRepository, TransactionRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Load("VeridiCore.Application")));

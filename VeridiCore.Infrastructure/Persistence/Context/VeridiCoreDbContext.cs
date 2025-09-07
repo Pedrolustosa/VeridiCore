@@ -7,6 +7,7 @@ namespace VeridiCore.Infrastructure.Persistence.Context;
 public class VeridiCoreDbContext(DbContextOptions<VeridiCoreDbContext> options) : DbContext(options)
 {
     public DbSet<Category> Categories { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
